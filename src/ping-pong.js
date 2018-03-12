@@ -9,7 +9,7 @@ export function pingPong(userNum) {
       output.push("pong");
     } else {
       output.push(i);
-    }
+    }  
   } // for
   return output;
 } // pingPong

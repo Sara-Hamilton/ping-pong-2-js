@@ -9,6 +9,10 @@ module.exports = {
     filename: 'bundle.js',
     path: path.resolve(__dirname, 'dist')
   },
+  devtool: 'inline-source-map',
+  devServer: {
+    contentBase: './dist'
+  }, //devServer
   plugins: [
     new UglifyJsPlugin({ sourceMap: true }),
     new CleanWebpackPlugin(['dist']),
@@ -26,7 +30,12 @@ module.exports = {
           'style-loader',
           'css-loader'
         ] // use
-      } // css
+      }, // css
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        loader: 'eslint-loader'
+      }
     ] // rules
   } // module
 }; // module.exports
